@@ -22,5 +22,9 @@ export const highlight = () => {
 
       timeline.to(child, { color: '#16216B' }).to(children[index + 1], { color: '#601FC9' }, '<');
     });
+
+    document.addEventListener('refreshScrollTrigger', () => {
+      timeline.scrollTrigger.refresh();
+    });
   });
 };

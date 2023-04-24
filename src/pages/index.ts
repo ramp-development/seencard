@@ -10,7 +10,7 @@ export const pages = () => {
     case '/the-card':
       break;
     case '/the-app':
-      //   app();
+      app();
       break;
     case '/about':
       break;

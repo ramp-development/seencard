@@ -6,5 +6,7 @@ export { icons } from './icons';
 export { slideUp } from './slideUp';
 export { slideUpChildren } from './slideUpChildren';
 export { splitChars } from './splitChars';
+export { splitCharsOut } from './splitCharsOut';
 export { splitLines } from './splitLines';
+export { splitLinesOut } from './splitLinesOut';
 export { splitWords } from './splitWords';

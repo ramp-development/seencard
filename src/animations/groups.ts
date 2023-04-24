@@ -44,5 +44,9 @@ export const groups = () => {
         utils.buttons(buttonGroup, timeline, '<0.1');
       });
     }
+
+    document.addEventListener('refreshScrollTrigger', () => {
+      timeline.scrollTrigger.refresh();
+    });
   });
 };
