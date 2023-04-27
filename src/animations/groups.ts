@@ -45,6 +45,14 @@ export const groups = () => {
       });
     }
 
+    const trigger = group.dataset.animationTrigger;
+    if (trigger) {
+      const timeout = trigger === 'instant' ? 0 : parseFloat(trigger);
+      setTimeout(() => {
+        timeline.play();
+      }, timeout);
+    }
+
     document.addEventListener('refreshScrollTrigger', () => {
       timeline.scrollTrigger.refresh();
     });

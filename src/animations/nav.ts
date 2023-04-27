@@ -1,7 +1,6 @@
 import { gsap } from 'gsap';
 
 export const nav = () => {
-  console.log('nav animation loaded');
   const navPos = document.querySelector('.nav_pos');
   if (!navPos) return;
 
