@@ -3,6 +3,8 @@ export const navPaddingTop = (elements: HTMLElement[]) => {
   const paddingTop = nav.offsetHeight;
 
   elements.forEach((element) => {
-    element.style.paddingTop = `${paddingTop}px`;
+    const styles = window.getComputedStyle(element);
+    const currentPaddingTop = parseFloat(styles.paddingTop);
+    element.style.paddingTop = `${currentPaddingTop + paddingTop}px`;
   });
 };

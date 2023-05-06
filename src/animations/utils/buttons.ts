@@ -2,7 +2,7 @@ export const buttons = (buttonGroup: Element, timeline: GSAPTimeline, delay: str
   const buttonTexts = buttonGroup.querySelectorAll('.button_text');
 
   timeline.from(buttonGroup, { backgroundColor: 'transparent' }, delay).from(
-    buttonGroup.children,
+    buttonGroup.childNodes,
     {
       opacity: 0,
       translateX: '16',

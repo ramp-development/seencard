@@ -26,8 +26,8 @@ export const nav = () => {
 
   function scrolledNav() {
     gsap.set(navPos, { position: 'fixed', translateY: '-100%', duration: 0 });
-    navComponent.classList.add('is-scrolled');
-    navBanner.style.display = 'none';
+    if (navComponent) navComponent.classList.add('is-scrolled');
+    if (navBanner) navBanner.style.display = 'none';
     gsap.to(navPos, { translateY: 0, duration: 0.5, ease: 'power2.out' });
   }
 
@@ -37,9 +37,10 @@ export const nav = () => {
       duration: 0.5,
       ease: 'power2.out',
       onComplete: () => {
-        navComponent.classList.remove('is-scrolled');
-        navBanner.style.removeProperty('display');
-        gsap.set(navPos, { position: 'absolute', translateY: 0, duration: 0 });
+        if (navComponent) navComponent.classList.remove('is-scrolled');
+        if (navBanner) navBanner.style.removeProperty('display');
+        gsap.set(navPos, { position: 'absolute', duration: 0 });
+        gsap.to(navPos, { translateY: 0, duration: 0.5, ease: 'power2.out' });
       },
     });
   }

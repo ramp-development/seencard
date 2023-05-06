@@ -43,7 +43,7 @@ export const hero = () => {
       splitChars(heading, timeline, '<');
 
       timeline
-        .from(spacers, { height: '256', stagger: 0.1 }, '<')
+        .from(spacers, { height: '16rem', stagger: 0.1 }, '<')
         .from(images, { translateY: '25%', stagger: 0.1, duration: 2 }, '<');
     }
   );
