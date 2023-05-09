@@ -44,7 +44,7 @@ export const groups = () => {
       if (features) utils.features(features, timeline, '<0.1');
       if (content) utils.fadeUp(content, timeline, '<0.1');
       if (lists.length !== 0) lists.forEach((list) => utils.fadeUpChildren(list, timeline, '<0.1'));
-      if (images) utils.fadeUpChildren(images, timeline, '<0.1');
+      if (images) utils.slideUpChildren(images, timeline, '0');
 
       if (buttonGroups.length === 1) utils.buttons(buttonGroups[0], timeline, '<0.25');
       if (buttonGroups.length > 1) {

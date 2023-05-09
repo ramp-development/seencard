@@ -3,12 +3,29 @@ import { initTestimonials } from './initTestimonials';
 import { navPaddingTop } from './navPaddingTop';
 
 export const initComponents = () => {
-  const testimonials = document.querySelector('.splide.is-testimonial');
+  const testimonials = document.querySelector<HTMLDivElement>('.splide.is-testimonial');
   if (testimonials) initTestimonials(testimonials);
 
-  const navPaddings = document.querySelectorAll('[data-padding-top]');
+  const navPaddings = [...document.querySelectorAll<HTMLDivElement>('[data-padding-top]')];
   navPaddingTop(navPaddings);
 
-  const scrollingPanels = document.querySelector('[data-scrolling-panels="component"]');
-  if (scrollingPanels) intiScrollingPanels();
+  const scrollingPanels = document.querySelector<HTMLDivElement>(
+    '[data-scrolling-panels="component"]'
+  );
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(
+      (entry) => {
+        const intersecting = entry.isIntersecting;
+        if (!intersecting) return;
+        intiScrollingPanels();
+        observer.unobserve(entry.target);
+      },
+      {
+        rootMargin: '100px',
+        threshold: 0,
+      }
+    );
+  });
+
+  if (scrollingPanels) observer.observe(scrollingPanels);
 };
