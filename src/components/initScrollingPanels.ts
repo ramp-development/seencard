@@ -21,9 +21,8 @@ export const intiScrollingPanels = () => {
         },
         scrollTrigger: {
           trigger,
-          start: 'top top',
-          end: 'bottom bottom',
-          pin: '.scrolling-panels_main',
+          start: 'top center',
+          end: 'bottom center',
           scrub: 1,
           onload: (self) => self.progress === 1 && self.animation.progress(1),
           onRefresh: (self) => self.progress === 1 && self.animation.progress(1),
