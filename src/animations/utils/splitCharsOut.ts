@@ -12,8 +12,9 @@ export const splitCharsOut = (
     formatted.chars,
     {
       opacity: 0,
-      rotationX: 95,
-      translateY: '-100%',
+      // rotationX: 95,
+      // translateY: '-100%',
+      translateY: '-75%',
     },
     delay
   );
