@@ -11,6 +11,23 @@ export const intiScrollingPanels = () => {
 
   const mm = gsap.matchMedia();
   mm.add('(min-width: 768px)', () => {
+    ScrollTrigger.create({
+      trigger: component,
+      start: 'top top',
+      end: 'bottom bottom',
+      pin: '.scrolling-panels_main',
+      markers: true,
+    });
+    // const stickyTl = gsap.create({
+    //   scrollTrigger: {
+    //     trigger: component,
+    //     start: 'top top',
+    //     end: 'bottom bottom',
+    //     pin: '.scrolling-panels_main',
+    //     scrub: true,
+    //   },
+    // });
+
     triggers?.forEach((trigger, index) => {
       const timeline = gsap.timeline({
         defaults: {
