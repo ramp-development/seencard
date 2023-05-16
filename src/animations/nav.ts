@@ -3,45 +3,36 @@ import { gsap } from 'gsap';
 export const nav = () => {
   const navPos = document.querySelector('.nav_pos');
   if (!navPos) return;
-
   const navComponent = navPos.querySelector('.nav_component');
   if (!navComponent) return;
-
   const navBanner = navPos.querySelector('.nav_banner');
 
+  // define gsap timeline
+  const timeline = gsap.timeline({
+    paused: true,
+    onStart: () => navComponent.classList.add('is-scrolled'),
+    onReverseComplete: () => navComponent.classList.remove('is-scrolled'),
+  });
+  timeline
+    .set(navBanner, { display: 'none' })
+    .set(navPos, { position: 'fixed', translateY: '-100%', duration: 0 })
+    .to(navPos, { translateY: 0, duration: 0.5, ease: 'power2.out' });
+
+  // define the scroll position and window height
   let previousScrollY = window.scrollY;
   const { innerHeight } = window;
 
-  if (previousScrollY > innerHeight) scrolledNav();
+  // play the timeline if the user has scrolled past the window height
+  if (previousScrollY > innerHeight) timeline.play();
 
+  // listen to the scroll event and play or reverse the timeline
   window.addEventListener('scroll', () => {
     if (previousScrollY < innerHeight && window.scrollY > innerHeight) {
-      scrolledNav();
+      timeline.play();
     } else if (previousScrollY > innerHeight && window.scrollY < innerHeight) {
-      staticNav();
+      timeline.reverse();
     }
 
     previousScrollY = window.scrollY;
   });
-
-  function scrolledNav() {
-    gsap.set(navPos, { position: 'fixed', translateY: '-100%', duration: 0 });
-    if (navComponent) navComponent.classList.add('is-scrolled');
-    if (navBanner) navBanner.style.display = 'none';
-    gsap.to(navPos, { translateY: 0, duration: 0.5, ease: 'power2.out' });
-  }
-
-  function staticNav() {
-    gsap.to(navPos, {
-      translateY: '-100%',
-      duration: 0.5,
-      ease: 'power2.out',
-      onComplete: () => {
-        if (navComponent) navComponent.classList.remove('is-scrolled');
-        if (navBanner) navBanner.style.removeProperty('display');
-        gsap.set(navPos, { position: 'absolute', duration: 0 });
-        gsap.to(navPos, { translateY: 0, duration: 0.5, ease: 'power2.out' });
-      },
-    });
-  }
 };

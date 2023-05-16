@@ -12,9 +12,9 @@ export const splitLinesOut = (
     formatted.lines,
     {
       opacity: 0,
-      // rotationX: 95,
-      // translateY: '-100%',
-      translateY: '-75%',
+      rotationX: 95,
+      translateY: '-100%',
+      // translateY: '-75%',
       stagger: 0.1,
     },
     delay
