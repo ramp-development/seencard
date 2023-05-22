@@ -8,7 +8,7 @@ export const splitWords = (element: Element | Element[], timeline: GSAPTimeline,
     formatted.words,
     {
       opacity: 0,
-      rotationX: -95,
+      // rotationX: -95,
       translateY: '100%',
       // translateY: '75%',
       stagger: 0.05,

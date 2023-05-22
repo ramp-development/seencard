@@ -8,7 +8,7 @@ export const splitChars = (element: Element | Element[], timeline: GSAPTimeline,
     formatted.chars,
     {
       opacity: 0,
-      rotationX: -95,
+      // rotationX: -95,
       translateY: '100%',
       // translateY: '75%',
     },

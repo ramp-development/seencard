@@ -28,7 +28,7 @@ export const groups = () => {
           duration: 1,
           ease: 'power2.out',
           stagger: 0.01,
-          force3D: true,
+          // force3D: true,
         },
         scrollTrigger: {
           trigger: group,
