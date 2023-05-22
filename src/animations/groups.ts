@@ -2,6 +2,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import * as utils from './utils';
+import { browser } from './utils/broswer';
 
 export const groups = () => {
   const groups = [...document.querySelectorAll('[data-animation-element="group"]')];
@@ -28,7 +29,7 @@ export const groups = () => {
           duration: 1,
           ease: 'power2.out',
           stagger: 0.01,
-          // force3D: true,
+          force3D: browser(),
         },
         scrollTrigger: {
           trigger: group,

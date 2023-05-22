@@ -1,4 +1,5 @@
 import { SplitText } from 'gsap/SplitText';
+import { browser } from './broswer';
 
 export const splitLinesOut = (
   element: Element | Element[],
@@ -12,9 +13,8 @@ export const splitLinesOut = (
     formatted.lines,
     {
       opacity: 0,
-      // rotationX: 95,
+      rotationX: browser() ? 95 : 0,
       translateY: '-100%',
-      // translateY: '-75%',
       stagger: 0.1,
     },
     delay

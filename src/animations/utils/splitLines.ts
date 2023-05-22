@@ -1,4 +1,5 @@
 import { SplitText } from 'gsap/SplitText';
+import { browser } from './broswer';
 
 export const splitLines = (element: Element | Element[], timeline: GSAPTimeline, delay: string) => {
   const formatted = new SplitText(element, { type: 'lines' });
@@ -8,9 +9,8 @@ export const splitLines = (element: Element | Element[], timeline: GSAPTimeline,
     formatted.lines,
     {
       opacity: 0,
-      // rotationX: -95,
+      rotationX: browser() ? -95 : 0,
       translateY: '100%',
-      // translateY: '75%',
       stagger: 0.1,
     },
     delay
