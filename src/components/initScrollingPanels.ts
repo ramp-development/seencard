@@ -19,6 +19,15 @@ export const intiScrollingPanels = () => {
     });
 
     triggers?.forEach((trigger, index) => {
+      const section = sections[index];
+      function makeActive(section, isActive) {
+        if (isActive) {
+          section.style.pointerEvents = 'auto';
+        } else {
+          section.style.removeProperty('pointer-events');
+        }
+      }
+
       const timeline = gsap.timeline({
         defaults: {
           duration: 1,
@@ -33,10 +42,13 @@ export const intiScrollingPanels = () => {
           scrub: 1,
           onload: (self) => self.progress === 1 && self.animation.progress(1),
           onRefresh: (self) => self.progress === 1 && self.animation.progress(1),
+          onEnter: () => makeActive(section, true),
+          onLeave: () => makeActive(section, false),
+          onEnterBack: () => makeActive(section, true),
+          onLeaveBack: () => makeActive(section, false),
         },
       });
 
-      const section = sections[index];
       const underline = underlines[index];
       const group = section.querySelector('[data-animation-element="group"]');
       const heading = group?.querySelector('[data-animation-element="heading"]');
