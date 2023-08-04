@@ -88,8 +88,10 @@ export const features = () => {
       items.forEach((item, index) => {
         const heading = item.querySelector('[data-animation-element="app-feature-heading"]');
         const sub = item.querySelector('[data-animation-element="app-feature-sub"]');
+        const phone = item.querySelector('[data-animation-element="app-feature-phone"]');
 
         utils.splitChars(heading, featuresTimeline, '<');
+        featuresTimeline.from(phone, { opacity: 0, duration: 0.5 }, '<');
         utils.splitLines(sub, featuresTimeline, '<0.1');
 
         if (index === items.length - 1) return;
