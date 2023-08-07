@@ -111,36 +111,36 @@ export const features = () => {
       );
     });
 
-    featuresMm.add('(max-width: 767px)', () => {
-      items.forEach((item) => {
-        const itemTimeline = gsap.timeline({
-          defaults: {
-            duration: 1,
-            ease: 'power2.out',
-            stagger: 0.01,
-            force3D: true,
-          },
-          scrollTrigger: {
-            trigger: item.querySelector('[data-animation-element="app-feature-content"]'),
-            start: 'top 80%',
-          },
-        });
+    // featuresMm.add('(max-width: 767px)', () => {
+    //   items.forEach((item) => {
+    //     const itemTimeline = gsap.timeline({
+    //       defaults: {
+    //         duration: 1,
+    //         ease: 'power2.out',
+    //         stagger: 0.01,
+    //         force3D: true,
+    //       },
+    //       scrollTrigger: {
+    //         trigger: item.querySelector('[data-animation-element="app-feature-content"]'),
+    //         start: 'top 80%',
+    //       },
+    //     });
 
-        utils.splitChars(
-          item.querySelector('[data-animation-element="app-feature-heading"]'),
-          itemTimeline,
-          '<'
-        );
-        utils.splitLines(
-          item.querySelector('[data-animation-element="app-feature-sub"]'),
-          itemTimeline,
-          '<0.1'
-        );
+    //     utils.splitChars(
+    //       item.querySelector('[data-animation-element="app-feature-heading"]'),
+    //       itemTimeline,
+    //       '<'
+    //     );
+    //     utils.splitLines(
+    //       item.querySelector('[data-animation-element="app-feature-sub"]'),
+    //       itemTimeline,
+    //       '<0.1'
+    //     );
 
-        document.addEventListener('refreshScrollTrigger', () => {
-          itemTimeline.scrollTrigger?.refresh();
-        });
-      });
-    });
+    //     document.addEventListener('refreshScrollTrigger', () => {
+    //       itemTimeline.scrollTrigger?.refresh();
+    //     });
+    //   });
+    // });
   });
 };
