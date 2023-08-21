@@ -6,7 +6,7 @@ export const highlight = () => {
   if (!components) return;
 
   components.forEach((component) => {
-    const { highlightMid } = component.dataset;
+    const { highlightMid } = component.dataset ?? '#601FC9';
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: component,

@@ -1,4 +1,5 @@
 import { SplitText } from 'gsap/SplitText';
+
 import { browser } from './broswer';
 
 export const splitCharsOut = (

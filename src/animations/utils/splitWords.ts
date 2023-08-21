@@ -1,4 +1,5 @@
 import { SplitText } from 'gsap/SplitText';
+
 import { browser } from './broswer';
 
 export const splitWords = (element: Element | Element[], timeline: GSAPTimeline, delay: string) => {
