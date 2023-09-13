@@ -1,19 +1,22 @@
-export const navPaddingTop = (elements: HTMLDivElement[]) => {
+export const navPaddingTop = () => {
+  const navPaddings = [...document.querySelectorAll<HTMLDivElement>('[data-padding-top]')];
+  if (!navPaddings.length) return;
+
   const nav = document.querySelector<HTMLDivElement>('.nav_component');
   if (!nav) return;
   const navHeight = nav.offsetHeight;
 
   if (checkMediaQuery('(min-width: 768px)')) {
-    elements.forEach((element) => {
-      setPadding(element, navHeight);
+    navPaddings.forEach((navPadding) => {
+      setPadding(navPadding, navHeight);
     });
   }
 
   window.addEventListener('resize', () => {
     if (checkMediaQuery('(min-width: 768px)')) {
-      elements.forEach((element) => setPadding(element, navHeight));
+      navPaddings.forEach((navPadding) => setPadding(navPadding, navHeight));
     } else {
-      elements.forEach((element) => removePadding(element));
+      navPaddings.forEach((navPadding) => removePadding(navPadding));
     }
   });
 
@@ -22,13 +25,13 @@ export const navPaddingTop = (elements: HTMLDivElement[]) => {
     return window.matchMedia(query).matches;
   }
 
-  function setPadding(element: HTMLDivElement, additionalPaddingTop: number) {
-    const styles = window.getComputedStyle(element);
+  function setPadding(navPadding: HTMLDivElement, additionalPaddingTop: number) {
+    const styles = window.getComputedStyle(navPadding);
     const currentPaddingTop = parseFloat(styles.paddingTop);
-    element.style.paddingTop = `${currentPaddingTop + additionalPaddingTop}px`;
+    navPadding.style.paddingTop = `${currentPaddingTop + additionalPaddingTop}px`;
   }
 
-  function removePadding(element: HTMLDivElement) {
-    element.style.removeProperty('padding-top');
+  function removePadding(navPadding: HTMLDivElement) {
+    navPadding.style.removeProperty('padding-top');
   }
 };

@@ -1,13 +1,12 @@
 import { intiScrollingPanels } from './initScrollingPanels';
 import { initTestimonials } from './initTestimonials';
+import { lazyVideos } from './lazyVideos';
 import { navPaddingTop } from './navPaddingTop';
 
 export const initComponents = () => {
-  const testimonials = document.querySelector<HTMLDivElement>('.splide.is-testimonial');
-  if (testimonials) initTestimonials(testimonials);
-
-  const navPaddings = [...document.querySelectorAll<HTMLDivElement>('[data-padding-top]')];
-  navPaddingTop(navPaddings);
+  lazyVideos();
+  initTestimonials();
+  navPaddingTop();
 
   const scrollingPanels = document.querySelector<HTMLDivElement>(
     '[data-scrolling-panels="component"]'

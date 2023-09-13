@@ -1,5 +1,8 @@
 import { Splide } from '@splidejs/splide';
-export const initTestimonials = (testimonials: HTMLElement) => {
+export const initTestimonials = () => {
+  const testimonials = document.querySelector<HTMLDivElement>('.splide.is-testimonial');
+  if (!testimonials) return;
+
   const slider = new Splide(testimonials, {
     type: 'loop',
     perPage: 2,
