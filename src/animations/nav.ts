@@ -7,6 +7,9 @@ export const nav = () => {
   const navComponent = navPos.querySelector('.nav_component');
   if (!navComponent) return;
   const navBanner = navPos.querySelector('.nav_banner');
+  const navButton = navComponent.querySelector<HTMLAnchorElement>('.nav_buttons .button');
+  let navButtonColor: string;
+  if (navButton) navButtonColor = navButton.dataset.button ?? 'white';
 
   // define gsap timeline
   const timeline = gsap.timeline({
@@ -17,8 +20,14 @@ export const nav = () => {
       onLeaveBack: () => timeline.reverse(),
     },
     paused: true,
-    onStart: () => navComponent.classList.add('is-scrolled'),
-    onReverseComplete: () => navComponent.classList.remove('is-scrolled'),
+    onStart: () => {
+      navComponent.classList.add('is-scrolled');
+      if (navButton) navButton.dataset.button = 'brand';
+    },
+    onReverseComplete: () => {
+      navComponent.classList.remove('is-scrolled');
+      if (navButton) navButton.dataset.button = navButtonColor;
+    },
   });
 
   timeline
