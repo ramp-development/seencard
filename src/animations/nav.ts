@@ -22,7 +22,7 @@ export const nav = () => {
     paused: true,
     onStart: () => {
       navComponent.classList.add('is-scrolled');
-      if (navButton) navButton.dataset.button = 'brand';
+      if (navButton) navButton.dataset.button = 'black';
     },
     onReverseComplete: () => {
       navComponent.classList.remove('is-scrolled');
