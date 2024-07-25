@@ -10,7 +10,7 @@ export const faqs = () => {
 
   // get url params
   const urlParams = new URLSearchParams(window.location.search);
-  const scrollTo = urlParams.get('faq');
+  const scrollTo = urlParams.get('item');
 
   items.forEach((item) => {
     const group = item.dataset.faqsGroup;
