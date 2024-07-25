@@ -14,4 +14,6 @@ window.Webflow.push(() => {
   pages();
   initComponents();
   animations();
+
+  $(document).off('click.wf-scroll');
 });

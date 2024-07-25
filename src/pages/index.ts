@@ -1,5 +1,6 @@
 import { app } from './app';
 import { card } from './card';
+import { faqs } from './faqs';
 
 export const pages = () => {
   const { pathname } = window.location;
@@ -10,7 +11,8 @@ export const pages = () => {
     case '/the-app':
       app();
       break;
-    case '/about':
+    case '/faqs':
+      faqs();
       break;
   }
 };
