@@ -41,4 +41,16 @@ export const faqs = () => {
 
     link.href = `#${anchor}`;
   });
+
+  const finalItems = [...document.querySelectorAll<HTMLDivElement>(`[${attr}-item]`)];
+  finalItems.forEach((item, index) => {
+    const tens = Math.floor((index + 1) / 10);
+    const units = (index + 1) % 10;
+
+    const numbers = [...item.querySelectorAll<HTMLDivElement>('[data-faq-number]')];
+    numbers.forEach((number) => {
+      const version = number.dataset.faqNumber;
+      number.textContent = version === '1' ? `${tens}` : `${units}`;
+    });
+  });
 };
